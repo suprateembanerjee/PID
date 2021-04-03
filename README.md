@@ -21,7 +21,7 @@ This project involves the a Simulator developed by Udacity which can be download
 
 With uWebSocketIO installed, navigate to the project directory, and execute the following commands:
 ```
-cd build
+mkdir build && cd build
 cmake .. && make
 ./pid
 ```
