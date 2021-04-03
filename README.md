@@ -27,6 +27,25 @@ cmake .. && make
 ```
 On the Ubuntu Terminal, we can observe that the program is listening to a port. Now, if the Simulator is launched, it should automatically connect and execute.
 
+## Overall Workflow
+
+The PID controller takes in a few hard coded static coefficients that I have manually tuned to optimize it for the intended behavior in the Simulator provided by Udacity.
+The PID class contained overloaded constructors to initialize the objects, and a set_coeffs() method to specifically set coefficients. The object has access to a few variables 
+such as the coefficients themselves, along with errors, previous CTE (used for differential calculations) and total CTE (used for integral calculations). The throttle has been 
+hardcoded to simulate constant velocity.
+
+Essentially, as the project currently stands, it is a P Controller, as both I and D coefficients have been tuned to negligible or null values. I plan to update this code in the future where I would use the following possible improvements.
+
+## Possible Improvements
+
+* Calculating Optimal Coefficients
+
+The hard-coded coefficients are not only inefficient and time consuming, but are also sub-optimal. Genetic Algorithm based techniques such as Coordinate Ascent (Twiddle), or other techniques such as Ant Colony Optimizations (ACO) can be used to optimize coefficients.
+
+* Using another PID controller for throttle
+
+Throttle has been set to a constant velocity. Ideally a PID controller can be used for throttle as well. Intuitively, it makes sense to use CTE because it is a parameter that tells how far the car is from the center of the lane. Intuitively, it would also make sense if speed was higher when the car is in the center of the lane and decrease as the car deviates from the center. 
+
 ## Output
 
 A video titled **Output.mp4** can be found in the repository showcasing the working of the PID Controller in the simulator.
