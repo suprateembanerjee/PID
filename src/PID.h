@@ -36,9 +36,8 @@ class PID {
    * Estimate optimal parameters using Twiddle.
    * @output The range of parameter values.
    */
-  double Twiddle(double tol);
+  //double Twiddle(double tol);
 
- private:
   /**
    * PID Errors
    */

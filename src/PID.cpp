@@ -1,9 +1,5 @@
 #include "PID.h"
 
-/**
- * TODO: Complete the PID class. You may add any additional desired functions.
- */
-
 PID::PID() 
 {
   Kp = 0;
@@ -37,7 +33,7 @@ PID::~PID() {}
 
 void PID::set_coeffs(double Kp_, double Ki_, double Kd_) {
   
-  // TODO: Set PID coefficients (and errors, if needed)
+  // Set PID coefficients
    
   Kp = Kp_;
   Ki = Ki_;
@@ -47,9 +43,8 @@ void PID::set_coeffs(double Kp_, double Ki_, double Kd_) {
 
 void PID::UpdateError(double cte) 
 {
-  /**
-   * TODO: Update PID errors based on cte.
-   */
+  // Update PID errors based on cte
+
   total_cte += cte;
   p_error = Kp * cte;
   d_error = Kd * (cte - prev_cte);
@@ -59,18 +54,7 @@ void PID::UpdateError(double cte)
 
 double PID::TotalError() 
 {
-  /**
-   * TODO: Calculate and return the total error
-   */
+  // Calculate and return the Total Error
 
-  return -1.0 * (p_error + d_error + i_error); // TODO: Add your total error calc here!
+  return -1.0 * (p_error + d_error + i_error);
 }
-
-/*
-double PID::Twiddle(double tol)
-{
-  vector<double> p {0,0,0};
-  vector<double> dp {1,1,1};
-
-}
-*/
